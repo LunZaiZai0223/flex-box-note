@@ -8,3 +8,4 @@ https://lunzaizai0223.github.io/flex-box-note/
 1. 呈現的結果參考自 https://codepen.io/enxaneta/pen/adLPwv
 2. [圖解：CSS Flex 屬性一點也不難](https://wcc723.github.io/css/2017/07/21/css-flex/#align-content)
 3. [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#background)
+4. [[css] 搞懂 flex-grow, flex-shirk 及 flex-basis 三種屬性](https://blog.camel2243.com/2019/11/14/css-%E6%90%9E%E6%87%82-flex-grow-flex-shirk-%E5%8F%8A-flex-basis-%E4%B8%89%E7%A8%AE%E5%B1%AC%E6%80%A7/)
