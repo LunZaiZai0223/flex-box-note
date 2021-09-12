@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./app.css">
+    <title>flex-box-demo</title>
+  </head>
+  <body>
+    <section>
+      <h1>下在外層容器(container)的屬性</h1>
+    </section>
+    <section class="flex-dir">
+      <div class="description">
+        <h3>FLEX-DIRECTION</h3>
+        <p>更改容器的主線軸。</p>
+      </div>
+      <form>
+        <input type="radio" id="row" name="flex-dir" value="row" checked>
+        <label for="row">row(default)</label>
+        <input type="radio" id="row-reverse" name="flex-dir" value="row-reverse">
+        <label for="row-reverse">row-reverse</label>
+        <input type="radio" id="column" name="flex-dir" value="column">
+        <label for="column">column</label>
+        <input type="radio" id="column-reverse" name="flex-dir" value="column-reverse">
+        <label for="column-reverse">column-reverse</label>
+      </form>
+      <div class="show-result" id="flex-dir-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex-dir-row">
+      <div class="description">
+        <h3>JUSTIFY-CONTENT</h3>
+        <p>依照主軸線對齊，此範例為 flex-direction:row ，所以主軸線為水平(x軸)。如果是 flex-direction:column 的狀態下則是垂直對齊，因為主軸線變成垂直(y軸)。</p>
+      </div>
+      <form>
+        <input type="radio" id="flex-start-row" name="justify-content-form-row" value="flex-start" checked>
+        <label for="flex-start-row">flex-start(default)</label>
+        <input type="radio" id="flex-end-row" name="justify-content-form-row" value="flex-end">
+        <label for="flex-end-row">flex-end</label>
+        <input type="radio" id="center-row" name="justify-content-form-row" value="center">
+        <label for="center-row">center</label>
+        <input type="radio" id="space-between-row" name="justify-content-form-row" value="space-between">
+        <label for="space-between-row">space-between</label>
+        <input type="radio" id="space-around-row" name="justify-content-form-row" value="space-around">
+        <label for="space-around-row">space-around</label>
+        <input type="radio" id="space-evenly-row" name="justify-content-form-row" value="space-evenly">
+        <label for="space-evenly-row">space-evenly</label>
+      </form>
+      <div class="show-result" id="flex-dir-row-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex-wrap">
+      <div class="description">
+        <h3>FLEX-WRAP</h3>
+        <p>display: flex 狀態下 flex-wrap 預設是 nowrap 。<br> - nowrap 的狀態：會強迫容器內第一層的子元素排成一行(超出範圍也不會換行)，所以 nowrap 會無視設定的 width 及 height。<br>- wrap 的狀態：會正常顯示容器內第一層子元素的 width 及 height ，超過範圍就會自動換行。</p>
+      </div>
+      <form>
+        <input type="radio" id="nowrap" name="flex-wrap" value="nowrap" checked>
+        <label for="nowrap">nowrap(default)</label>
+        <input type="radio" id="wrap" name="flex-wrap" value="wrap">
+        <label for="wrap">wrap</label>
+        <input type="radio" id="wrap-reverse" name="flex-wrap" value="wrap-reverse">
+        <label for="wrap-reverse">wrap-reverse</label>
+      </form>
+      <div class="show-result" id="flex-wrap-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="align-items">
+      <div class="description">
+        <h3>ALIGN-ITEMS （以 flex-direction 為 row 時的範例）</h3>
+        <p>align-items 是屬於交錯軸的設定與主線軸不同方向。比方來說，當主線軸為水平，那麼 align-items 就是設定垂直的位置；當主軸線為垂直，那麼 align-items 則是設定水平的位置。</p>
+        <p>- stretch 會使容器內第一層子元素佔滿容器的空間(但如果元素本身有設定 width 及 height 則會保留設定)。<br>- baseline 會依照元素內的文字為基準對齊。</p>
+        <form>
+          <input type="radio" id="flex-start-align-items" name="align-items" value="flex-start">
+          <label for="flex-start-align-items">flex-start</label>
+          <input type="radio" id="flex-end-align-items" name="align-items" value="flex-end">
+          <label for="flex-end-align-items">flex-end</label>
+          <input type="radio" id="center-align-items" name="align-items" value="center">
+          <label for="center-align-items">center</label>
+          <input type="radio" id="stretch-align-items" name="align-items" value="stretch" checked>
+          <label for="stretch-align-items">stretch(default)</label>
+          <input type="radio" id="baseline-align-items" name="align-items" value="baseline">
+          <label for="baseline-align-items">baseline</label>
+        </form>
+      </div>
+      <div class="show-result" id="align-items-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="align-content">
+      <div class="description">
+        <h3>ALIGN-CONTENT （以 flex-direction 為 row 時的範例）</h3>
+        <p>align-items 的多行版本，有「多行」才會執行。如果沒有 flex-wrap: wrap or wrap-reverse 就不會有「多行」的情況，所以就不會執行。</p>
+        <p>- stretch 與 align-items: stretch 相同，如果容器內第一層元素有自行設定 width 及 height 便維持設定。</p>
+      </div>
+      <form>
+        <input type="radio" id="flex-start-align-content" name="align-content" value="flex-start" checked>
+        <label for="flex-start-align-content">flex-start</label>
+        <input type="radio" id="flex-end-align-content" name="align-content" value="flex-end">
+        <label for="flex-end-align-content">flex-end</label>
+        <input type="radio" id="center-align-content" name="align-content" value="center">
+        <label for="center-align-content">center</label>
+        <input type="radio" id="stretch-align-content" name="align-content" value="stretch">
+        <label for="stretch-align-content">stretch</label>
+        <input type="radio" id="space-between-align-content" name="align-content" value="space-between">
+        <label for="space-between-align-content">space-between</label>
+        <input type="radio" id="space-around-align-content" name="align-content" value="space-around">
+        <label for="space-around-align-content">space-around</label>
+      </form>
+      <div id="align-content-result" class="align-content-flex-start show-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+        <div class="box box-7">
+          <p>7</p>
+        </div>
+        <div class="box box-8">
+          <p>8</p>
+        </div>
+        <div class="box box-9">
+          <p>9</p>
+        </div>
+        <div class="box box-10">
+          <p>10</p>
+        </div>
+        <div class="box box-11">
+          <p>11</p>
+        </div>
+        <div class="box box-12">
+          <p>12</p>
+        </div>
+        <div class="box box-13">
+          <p>13</p>
+        </div>
+        <div class="box box-14">
+          <p>14</p>
+        </div>
+        <div class="box box-15">
+          <p>15</p>
+        </div>
+        <div class="box box-16">
+          <p>16</p>
+        </div>
+        <div class="box box-17">
+          <p>17</p>
+        </div>
+        <div class="box box-18">
+          <p>18</p>
+        </div>
+        <div class="box box-19">
+          <p>19</p>
+        </div>
+        <div class="box box-20">
+          <p>20</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h1>下在內層子元素(item)的屬性</h1>
+    </section>
+    <section class="flex-order">
+      <div class="description">
+        <h3>Order</h3>
+        <p>order(default 0) 會重新定義元素的順序，順序由小至大排列，如同值，新設定>舊設定。</p>
+      </div>
+      <form class="flex-order-form">
+        <label for="element-0">元素1:</label>
+        <input id="element-0" type="number" name="flex-order" min="0">
+        <label for="element-1">元素2:</label>
+        <input id="element-1" type="number" name="flex-order" min="0">
+        <label for="element-2">元素3:</label>
+        <input id="element-2" type="number" name="flex-order" min="0">
+        <label for="element-3">元素4:</label>
+        <input id="element-3" type="number" name="flex-order" min="0">
+        <label for="element-4">元素5:</label>
+        <input id="element-4" type="number" name="flex-order" min="0">
+        <label for="element-5">元素6:</label>
+        <input id="element-5" type="number" name="flex-order" min="0">
+      </form>
+      <div class="show-result" id="flex-order-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="align-self">
+      <div class="description">
+        <h3>ALIGN-SELF</h3>
+        <p>align-self 單獨設定一個內元素交錯軸位置。</p>
+        <p>- auto 會跟著外層元素設定<br>- stretch 會自動填滿容器，但如果元素本身有設定 width 及 height 則保持設定。</p>
+        <form>
+          <input type="radio" id="auto-align-self" name="align-self" value="auto" checked>
+          <label for="auto-align-self">auto(default)</label>
+          <input type="radio" id="flex-start-align-self" name="align-self" value="flex-start">
+          <label for="flex-start-align-self">flex-start</label>
+          <input type="radio" id="flex-end-align-self" name="align-self" value="flex-end">
+          <label for="flex-end-align-self">flex-end</label>
+          <input type="radio" id="center-align-self" name="align-self" value="center">
+          <label for="center-align-self">center</label>
+          <input type="radio" id="stretch-align-self" name="align-self" value="stretch">
+          <label for="stretch-align-self">stretch</label>
+          <input type="radio" id="baseline-align-self" name="align-self" value="baseline">
+          <label for="baseline-align-self">baseline</label>
+        </form>
+      </div>
+      <div class="show-result" id="align-self-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3 align-self-box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex-grow">
+      <div class="description">
+        <h3>FLEX-GROW</h3>
+        <p>flex-grow(default 0)<br>子元素的擴展性：如果容器還有空間的話會依照數字的比例擴展。如果全部的子元素 flex-grow:1 ，則每個子元素擴展的範圍則相同，如果有其中一個子元素設為 2 ，則該子元素擴展的範圍會最大。<br>- <i>負數的數字無效</i></p>
+      </div>
+      <form class="flex-grow-form">
+        <label for="fg-element-0">元素1:</label>
+        <input id="fg-element-0" type="number" name="flex-grow" min="0">
+        <label for="fg-element-1">元素2:</label>
+        <input id="fg-element-1" type="number" name="flex-grow" min="0">
+        <label for="fg-element-2">元素3:</label>
+        <input id="fg-element-2" type="number" name="flex-grow" min="0">
+        <label for="fg-element-3">元素4:</label>
+        <input id="fg-element-3" type="number" name="flex-grow" min="0">
+        <label for="fg-element-4">元素5:</label>
+        <input id="fg-element-4" type="number" name="flex-grow" min="0">
+        <label for="fg-element-5">元素6:</label>
+        <input id="fg-element-5" type="number" name="flex-grow" min="0">
+      </form>
+      <div class="show-result" id="flex-grow-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex-shrink">
+      <div class="description">
+        <h3>FLEX-SHRINK</h3>
+        <p>flex-shrink(default 0)<br>子元素的收縮性：如果容器空間不夠時，子元素會依照數字的比例縮小。如果全部的子元素 flex-shrink:1 ，則每個子元素縮小的範圍則相同，如果有其中一個子元素設為 2 ，則該子元素縮小的範圍會最大。<br>- <i>負數的數字無效</i></p>
+      </div>
+      <form class="flex-shrink-form">
+        <label for="fs-element-0">元素1:</label>
+        <input id="fs-element-0" type="number" name="flex-shrink" min="0">
+        <label for="fs-element-1">元素2:</label>
+        <input id="fs-element-1" type="number" name="flex-shrink" min="0">
+        <label for="fs-element-2">元素3:</label>
+        <input id="fs-element-2" type="number" name="flex-shrink" min="0">
+        <label for="fs-element-3">元素4:</label>
+        <input id="fs-element-3" type="number" name="flex-shrink" min="0">
+        <label for="fs-element-4">元素5:</label>
+        <input id="fs-element-4" type="number" name="flex-shrink" min="0">
+        <label for="fs-element-5">元素6:</label>
+        <input id="fs-element-5" type="number" name="flex-shrink" min="0">
+      </form>
+      <div class="show-result" id="flex-shrink-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+        <div class="box box-3">
+          <p>3</p>
+        </div>
+        <div class="box box-4">
+          <p>4</p>
+        </div>
+        <div class="box box-5">
+          <p>5</p>
+        </div>
+        <div class="box box-6">
+          <p>6</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex-basis">
+      <div class="description">
+        <h3>FLEX-BASIS</h3>
+        <p>flex-basis(default auto，告訴網頁：請遵照原本子元素的 width 及 height)<br>
+          - 依照主線軸設定子元素的 width 或 height
+        </p>
+      </div>
+      <form class="flex-basis-dir-form">
+        <input id="lex-basis-dir-row" type="radio" name="flex-basis-dir" value="row">
+        <label for="lex-basis-dir-row">row</label>
+        <input id="lex-basis-dir-column" type="radio" name="flex-basis-dir" value="column">
+        <label for="lex-basis-dir-column">column</label>
+      </form>
+      <form class="flex-basis-form">
+        <label for="fb-element-0">元素1 flex-basis %</label>
+        <input id="fb-element-0" type="number" name="flex-basis" min="0" value="50">
+        <br>
+        <label for="fb-element-1">元素2 flex-basis %</label>
+        <input id="fb-element-1" type="number" name="flex-basis" min="0" value="50">
+      </form>
+      <div class="show-result" id="flex-basis-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+      </div>
+    </section>
+    <section class="flex">
+      <div class="description">
+        <h3>FLEX</h3>
+        <p>flex 是縮寫，包含了 3 個屬性(flex-grow, [flex-shrink], [flex-basis])。
+        </p>
+      </div>
+      <form class="flex-shortcut-form">
+        <div class="element-1">
+          <div class="element-title">
+            <p>元素1</p>
+          </div>
+          <div class="element-content">
+            <input id="flex-grow-0" type="number" name="flex-flex-grow">
+            <label for="flex-grow-0">flex-grow</label>
+          </div>
+          <div class="element-content">
+            <input id="flex-shrink-0" type="number" name="flex-flex-shrink">
+            <label for="flex-shrink-0">flex-shrink</label>
+          </div>
+          <div class="element-content">
+            <input id="flex-element-0" type="number" name="flex-flex-basis" min="0" >
+            <label for="flex-element-0">flex-basis %</label>
+          </div>
+        </div>
+        <div class="element-2">
+          <div class="element-title">
+            <p>元素2</p>
+          </div>
+          <div class="element-content">
+            <input id="flex-grow-1" type="number" name="flex-flex-grow">
+            <label for="flex-grow-1">flex-grow</label>
+          </div>
+          <div class="element-content">
+            <input id="flex-shrink-1" type="number" name="flex-flex-shrink">
+            <label for="flex-shrink-1">flex-shrink</label>
+          </div>
+          <div class="element-content">
+            <input id="flex-element-1" type="number" name="flex-flex-basis" min="0" >
+            <label for="flex-element-1">flex-basis %</label>
+          </div>
+        </div>
+      </form>
+      <div class="show-result" id="flex-result">
+        <div class="box box-1">
+          <p>1</p>
+        </div>
+        <div class="box box-2">
+          <p>2</p>
+        </div>
+      </div>
+    </section>
+    <script src="./app.js"></script>
+  </body>
+</html>
